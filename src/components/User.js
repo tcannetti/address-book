@@ -18,7 +18,7 @@ const [btnTxt, setBtnTxt] = useState("More Info")
   return (
     <div className="address-card">
       <div className="pic">
-        <img className="img" src={user.picture}/>
+        <img className="img" src={user.picture.thumbnail}/>
       </div>
       <div className="contact-info">
         <h3 className="name">{`${user.name.first} ${user.name.last}`}</h3>
