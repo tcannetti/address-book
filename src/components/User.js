@@ -13,15 +13,16 @@ const [btnTxt, setBtnTxt] = useState("More Info")
     }
   }
 
+  const { user } = props;
   // DESTRUCTURE THESE 
   return (
     <div className="address-card">
       <div className="pic">
-        <img className="img" src={props.user.picture}/>
+        <img className="img" src={user.picture}/>
       </div>
       <div className="contact-info">
-        <h3 className="name">{`${props.user.name.first} ${props.user.name.last}`}</h3>
-        {infoReveal ? <ExpandInfo user={props.user} /> : ''}
+        <h3 className="name">{`${user.name.first} ${user.name.last}`}</h3>
+        {infoReveal ? <ExpandInfo user={user} /> : ''}
       </div>
       <div className="button">
         <button onClick={showInfo}>{btnTxt}</button>
@@ -31,12 +32,12 @@ const [btnTxt, setBtnTxt] = useState("More Info")
 }
 
 const ExpandInfo = (props) => {
+  const { user } = props;
   return (
     <p>
-        Address:{` ${props.user.location.street.number} ${props.user.location.street.name}, ${props.user.location.city}, ${props.user.location.state}, ${props.user.location.street.postcode}`}<br />
-        Email:{` ${props.user.email}`}<br />
-        Phone:{` ${props.user.phone}`}<br />
-        Cell:{` ${props.user.cell}`}
+        Email:{` ${user.email}`}<br />
+        Address:{` ${user.location.street.number} ${user.location.street.name}, ${user.location.city}, ${user.location.state}, ${user.location.street.postcode}`}<br />
+        Phone:{` ${user.phone}`}<br />
     </p>
   )
 }
